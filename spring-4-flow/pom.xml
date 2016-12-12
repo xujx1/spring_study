@@ -1,0 +1,47 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <artifactId>spring.study</artifactId>
+        <groupId>com.xujinxin.study</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>spring-4-flow</artifactId>
+    <packaging>war</packaging>
+    <name>spring-4-flow Maven Webapp</name>
+    <url>http://maven.apache.org</url>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.webflow</groupId>
+            <artifactId>spring-webflow</artifactId>
+            <version>2.4.4.RELEASE</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <finalName>spring-4-flow</finalName>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <charset>UTF-8</charset>
+                    <port>8081</port>
+                    <path>/</path>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>

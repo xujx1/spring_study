@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow
+ http://www.springframework.org/schema/webflow/spring-webflow.xsd">
+
+    <view-state id="index" view="index">
+        <on-render>
+            <evaluate expression="userService.getUsers()" result="viewScope.users"/>
+        </on-render>
+        <transition on="addUser" to="addUser"/>
+    </view-state>
+
+
+    <action-state id="addUser">
+        <evaluate expression="userService.addUser(userName)"/>
+        <transition to="hello"/>
+    </action-state>
+
+
+    <view-state id="hello" view="index">
+        <transition on="getUser" to="index"></transition>
+    </view-state>
+</flow>

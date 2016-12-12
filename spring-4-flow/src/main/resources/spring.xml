@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <!-- 搜索 samples.webflow 包里的 @Component 注解，并将其部署到容器中 -->
+    <context:component-scan base-package="com.hello"/>
+    <!-- 启用基于注解的配置 -->
+    <context:annotation-config/>
+    <import resource="spring-mvc.xml"/>
+    <import resource="spring-flow.xml"/>
+</beans>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+        <property name="exposeContextBeansAsAttributes" value="true"/>
+    </bean>
+
+
+    <!--  如何根据http请求选择合适的controller是MVC中一项十分关键的功能，在Spring MVC中，HandlerMapping接口是这一活动的抽象 -->
+    <!-- SimpleUrlHandlerMapping  通过配置文件，把一个URL映射到Controller -->
+    <bean id="viewMappings"
+          class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <!-- /hello 请求由 flowController 来处理 -->
+        <!-- 不管设成 /hello.do 还是设成 /hello ，或者 /hello.htm ，效果都是一样的， flowController 都会去找 id 为 hello的flow来执行 -->
+        <property name="mappings">
+            <value>/hello=flowController</value>
+        </property>
+        <property name="defaultHandler">
+            <!-- UrlFilenameViewController 会将 "/index" 这样的请求映射成名为 "index" 的视图 -->
+            <bean class="org.springframework.web.servlet.mvc.UrlFilenameViewController"/>
+        </property>
+    </bean>
+    <!-- 我们只要明白 FlowController 可根据客户端请求的结尾部分，找出相应的 flow 来执行。配置 FlowController只需指定FlowExecutor即可 -->
+    <bean id="flowController" class="org.springframework.webflow.mvc.servlet.FlowController">
+        <property name="flowExecutor" ref="flowExecutor"/>
+    </bean>
+</beans>
