@@ -16,6 +16,8 @@
         <module>spring-5-security</module>
         <module>spring-6-jdbc</module>
         <module>spring-7-jpa</module>
+        <module>spring-8-nosql-mongodb</module>
+
     </modules>
 
     <repositories>
@@ -48,6 +50,9 @@
         <spring-security.version>4.2.0.RELEASE</spring-security.version>
         <!--选2.6.5是因为版本不兼容的问题-->
         <jackson.version>2.6.5</jackson.version>
+        <!--mongodb版本号-->
+        <mongodb.version>3.4.0</mongodb.version>
+        <mongodb.spring.version>1.9.5.RELEASE</mongodb.spring.version>
 
     </properties>
 
@@ -393,6 +398,21 @@
             <artifactId>jackson-annotations</artifactId>
             <version>${jackson.version}</version>
         </dependency>
+
+        <!--mongodb-->
+
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongo-java-driver</artifactId>
+            <version>${mongodb.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-mongodb</artifactId>
+            <version>${mongodb.spring.version}</version>
+        </dependency>
+
+
     </dependencies>
 
     <!--指定jdk编译版本-->
