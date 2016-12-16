@@ -3,6 +3,7 @@ package com.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -19,6 +20,7 @@ import javax.sql.DataSource;
  * 通过重载WebSecurityConfigurerAdapter
  * 三个configure()方法来配置Web安全性
  */
+@Import(value = DataSourceConfiguration.class)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
