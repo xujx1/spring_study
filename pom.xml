@@ -17,7 +17,7 @@
         <module>spring-6-jdbc</module>
         <module>spring-7-jpa</module>
         <module>spring-8-nosql-mongodb</module>
-
+        <module>spring-8-nosql-redis</module>
     </modules>
 
     <repositories>
@@ -53,7 +53,9 @@
         <!--mongodb版本号-->
         <mongodb.version>3.4.0</mongodb.version>
         <mongodb.spring.version>1.9.5.RELEASE</mongodb.spring.version>
-
+        <!--jedis版本号-->
+        <jedis.version>2.9.0</jedis.version>
+        <redis.spring.version>1.7.5.RELEASE</redis.spring.version>
     </properties>
 
     <dependencies>
@@ -412,6 +414,18 @@
             <version>${mongodb.spring.version}</version>
         </dependency>
 
+
+        <!--引入redis-->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-redis</artifactId>
+            <version>${redis.spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>${jedis.version}</version>
+        </dependency>
 
     </dependencies>
 
