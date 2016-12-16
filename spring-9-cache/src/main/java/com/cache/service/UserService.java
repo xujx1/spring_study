@@ -10,15 +10,19 @@ import java.util.List;
 
 public interface UserService {
 
-    @Cacheable(value = "Cache", key = "#root.methodName ")
+    /**
+     * redis会生成两个缓存。
+     * 一个缓存是${value}~keys 是专门存储 #root.methodName的key的，虽然删除也是能正常取缓存数据的
+     * 第二个就是key= #root.methodName value 为结果的缓存
+     */
+    @Cacheable(value = "cache", key = "#root.methodName")
     List<User> findAll();
 
-    @Cacheable(value = "Cache", key = "#root.args[0]")
+    @Cacheable(value = "cache", key = "#root.args[0]")
     User findByUsername(String username);
 
 
-
-    @CacheEvict(value = "Cache", key = "#root.args[0]")
+    @CacheEvict(value = "cache", key = "#root.args[0]")
     @Transactional(rollbackFor = NullPointerException.class)
     void updateByUsername(String username);
 }
