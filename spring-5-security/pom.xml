@@ -11,6 +11,16 @@
     <name>spring-5-security Maven Webapp</name>
     <url>http://maven.apache.org</url>
 
+
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/javax.annotation/jsr250-api -->
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>jsr250-api</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+    </dependencies>
     <build>
         <finalName>spring-5-security</finalName>
 

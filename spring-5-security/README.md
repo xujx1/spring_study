@@ -24,3 +24,24 @@ configure(AuthenticationManagerBuilder)                     通过重载，配�
 
 从Spring Security 3.2开始，默认就会启用CSRF防护
 Spring Security通过一个同步token的方式来实现CSRF防护的功能
+
+
+
+Spring Security提供了三种不同的安全注解：
+    Spring Security自带的@Secured注解；
+    JSR-250的@RolesAllowed注解；
+    表达式驱动的注解，包括@PreAuthorize、@PostAuthorize、@PreFilter和@PostFilter。
+
+
+@Secured和@RolesAllowed方案非常类似，能够基于用户所授予的权限限制对方法的访问。
+当我们需要在方法上定义更灵活的安全规则时，
+Spring Security提供了@PreAuthorize和@PostAuthorize，
+而@PreFilter/@PostFilter能够过滤方法返回的以及传入方法的集合。
+
+
+            Spring Security 3.0提供了4个新的注解，可以使用SpEL表达式来保护方法调用
+注　　解                        描　　述
+@PreAuthorize                   在方法调用之前，基于表达式的计算结果来限制对方法的访问
+@PostAuthorize                  允许方法调用，但是如果表达式计算结果为false，将抛出一个安全性异常
+@PostFilter                     允许方法调用，但必须按照表达式来过滤方法的结果
+@PreFilter                      允许方法调用，但必须在进入方法之前过滤输入值
