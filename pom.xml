@@ -19,6 +19,8 @@
         <module>spring-8-nosql-mongodb</module>
         <module>spring-8-nosql-redis</module>
         <module>spring-9-cache</module>
+        <module>spring-10-rpc</module>
+        <module>spring-11-elasticsearch</module>
     </modules>
 
     <repositories>
@@ -292,6 +294,13 @@
             <version>${spring.version}</version>
         </dependency>
 
+        <!--   &lt;!&ndash; https://mvnrepository.com/artifact/org.springframework/spring-remoting &ndash;&gt;
+           <dependency>
+               <groupId>org.springframework</groupId>
+               <artifactId>spring-remoting</artifactId>
+               <version>2.0.8</version>
+           </dependency>-->
+
 
         <!-- MySql -->
         <dependency>
@@ -411,7 +420,7 @@
             <version>${jackson.version}</version>
         </dependency>
 
-<!--hibernate &#45;&#45;jpa-->
+        <!--hibernate &#45;&#45;jpa-->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
@@ -455,6 +464,7 @@
             </exclusions>
         </dependency>
 
+
         <dependency>
             <groupId>org.hibernate.javax.persistence</groupId>
             <artifactId>hibernate-jpa-2.1-api</artifactId>
@@ -486,6 +496,25 @@
             <artifactId>jedis</artifactId>
             <version>${jedis.version}</version>
         </dependency>
+
+        <!--引入ElasticSearch-->
+        <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-elasticsearch -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-elasticsearch</artifactId>
+            <version>2.0.5.RELEASE</version>
+        </dependency>
+
+      <!--  使用2.2.3版本是因为我本地装的是2.3.3版本
+        jar包需要与版本号一致
+-->
+        <!-- https://mvnrepository.com/artifact/org.elasticsearch/elasticsearch -->
+        <dependency>
+            <groupId>org.elasticsearch</groupId>
+            <artifactId>elasticsearch</artifactId>
+            <version>2.3.3</version>
+        </dependency>
+
 
     </dependencies>
 
