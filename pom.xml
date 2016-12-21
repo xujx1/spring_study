@@ -228,6 +228,21 @@
         </dependency>
 
 
+        <!-- Apache Http Client -->
+        <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.2</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpasyncclient -->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpasyncclient</artifactId>
+            <version>4.1.2</version>
+        </dependency>
+
+
         <!--   这个jar 文件包含Spring MVC 框架相关的所有类。
         包括框架的Servlets，Web MVC框架，控制器和视图支持。
         当然，如果你的应用使用了独立的MVC 框架，则无需这个JAR 文件里的任何类。
@@ -505,14 +520,13 @@
             <version>2.0.5.RELEASE</version>
         </dependency>
 
-      <!--  使用2.2.3版本是因为我本地装的是2.3.3版本
-        jar包需要与版本号一致
--->
-        <!-- https://mvnrepository.com/artifact/org.elasticsearch/elasticsearch -->
+        <!--  使用2.2.3版本是因为我本地装的是2.3.3版本
+          jar包需要与版本号一致 -->
+        <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-elasticsearch -->
         <dependency>
-            <groupId>org.elasticsearch</groupId>
-            <artifactId>elasticsearch</artifactId>
-            <version>2.3.3</version>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-elasticsearch</artifactId>
+            <version>2.0.0.RELEASE</version>
         </dependency>
 
 

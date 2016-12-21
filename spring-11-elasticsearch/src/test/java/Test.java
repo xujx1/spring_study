@@ -35,7 +35,10 @@ public class Test {
     public void testAdd() {
         userService.findAll().forEach(System.out::println);
         System.out.println("=====================================");
-        userService.addUser(new User(1L, "许金鑫"));
+        userService.addUser(new User(1L, "许金鑫", "xjx", "xujx"));
+        userService.addUser(new User(2L, "龚金星", "xj", "gongjx"));
+        userService.addUser(new User(3L, "陈鑫鑫", "cxx", "xjcxx"));
+        userService.addUser(new User(4L, "金雷", "jl", "jinl"));
         System.out.println("=====================================");
         userService.findAll().forEach(System.out::println);
         System.out.println("=====================================");
@@ -53,9 +56,9 @@ public class Test {
 
     @org.junit.Test
     public void testSearch() {
-        userService.findAll().forEach(System.out::println);
+      /*  userService.findAll().forEach(System.out::println);*/
         System.out.println("=====================================");
-        userService.search("1").forEach(System.out::println);
+        userService.search("xj").forEach(System.out::println);
     }
 
 
@@ -65,7 +68,8 @@ public class Test {
         users.forEach(System.out::println);
         System.out.println("=====================================");
         User user = users.iterator().next();
-        user.setName("许金鑫2");
+        user.setChaName("许金鑫");
+        user.setEngName("xjx");
         //update不能实时的跟新数据有3s多的延迟
         userService.updateUser(user);
         userService.findAll().forEach(System.out::println);
