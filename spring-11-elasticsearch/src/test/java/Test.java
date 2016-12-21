@@ -1,4 +1,3 @@
-import com.elasticsearch.config.Config;
 import com.elasticsearch.pojo.User;
 import com.elasticsearch.service.UserService;
 import org.junit.After;
@@ -9,7 +8,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = Config.class)
+/*@ContextConfiguration(classes = Config.class)*/
+@ContextConfiguration(locations = "classpath:spring.xml")
 public class Test {
 
     @Autowired

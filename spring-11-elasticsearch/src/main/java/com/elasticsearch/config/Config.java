@@ -11,7 +11,6 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
 import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
 import org.springframework.data.elasticsearch.repository.config.EnableElasticsearchRepositories;
-import org.springframework.web.client.AsyncRestTemplate;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -53,10 +52,4 @@ public class Config {
     public ElasticsearchOperations elasticsearchTemplate() {
         return new ElasticsearchTemplate(transportClient());
     }
-
-
-  /*  @Bean
-    public AsyncRestTemplate asyncRestTemplate() {
-        AsyncRestTemplate asyncRestTemplate = new AsyncRestTemplate();
-    }*/
 }
