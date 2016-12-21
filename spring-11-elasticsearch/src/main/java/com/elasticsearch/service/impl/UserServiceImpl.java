@@ -6,6 +6,8 @@ import com.elasticsearch.service.UserService;
 import org.elasticsearch.action.index.IndexRequest;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.search.sort.SortBuilders;
+import org.elasticsearch.search.sort.SortOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
@@ -61,8 +63,10 @@ public class UserServiceImpl implements UserService {
                         should(QueryBuilders.prefixQuery("engName", name).boost(10f)).
                         should(QueryBuilders.matchQuery("chaName", name).boost(100f));
 
-        SearchQuery searchQuery = new NativeSearchQueryBuilder().withQuery(queryBuilder).build();
-        return  elasticsearchTemplate.queryForList(searchQuery, User.class);
+        SearchQuery searchQuery = new NativeSearchQueryBuilder().withQuery(queryBuilder).withSort(SortBuilders.scoreSort()).build();
+        elasticsearchTemplate.queryForList(new NativeSearchQueryBuilder().withQuery(queryBuilder).withSort(SortBuilders.scoreSort().order(SortOrder.DESC)).build(), User.class).forEach(System.out::println);
+        System.out.println("=====================================");
+        return elasticsearchTemplate.queryForList(searchQuery, User.class);
        /* return userRepository.search(QueryBuilders.multiMatchQuery(name, "chaName", "engName", "spellName").field("chaName", 100f).field("engName", 10f).field("spellName", 1f));*/
     }
 

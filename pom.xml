@@ -517,16 +517,17 @@
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-elasticsearch</artifactId>
-            <version>2.0.5.RELEASE</version>
+            <version>2.0.0.RELEASE</version>
         </dependency>
 
         <!--  使用2.2.3版本是因为我本地装的是2.3.3版本
-          jar包需要与版本号一致 -->
-        <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-elasticsearch -->
+          jar包需要与版本号一致
+  -->
+        <!-- https://mvnrepository.com/artifact/org.elasticsearch/elasticsearch -->
         <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-elasticsearch</artifactId>
-            <version>2.0.0.RELEASE</version>
+            <groupId>org.elasticsearch</groupId>
+            <artifactId>elasticsearch</artifactId>
+            <version>2.3.3</version>
         </dependency>
 
 
