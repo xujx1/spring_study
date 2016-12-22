@@ -21,6 +21,7 @@
         <module>spring-9-cache</module>
         <module>spring-10-rpc</module>
         <module>spring-11-elasticsearch</module>
+        <module>spring-12-rest</module>
     </modules>
 
     <repositories>
