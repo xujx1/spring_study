@@ -22,6 +22,7 @@
         <module>spring-10-rpc</module>
         <module>spring-11-elasticsearch</module>
         <module>spring-12-rest</module>
+        <module>spring-13-jms</module>
     </modules>
 
     <repositories>
@@ -514,6 +515,18 @@
         </dependency>
 
 
+        <!--引入activemq-->
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jms</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-all</artifactId>
+            <version>5.14.2</version>
+        </dependency>
 
 
     </dependencies>
