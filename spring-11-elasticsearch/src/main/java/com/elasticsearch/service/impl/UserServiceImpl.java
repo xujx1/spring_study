@@ -83,4 +83,21 @@ public class UserServiceImpl implements UserService {
                 build();
         elasticsearchTemplate.update(updateQuery);
     }
+
+    @Override
+    public void findByIds(Integer[] id) {
+        QueryBuilder queryBuilder = QueryBuilders.boolQuery().
+                //boost设置权重
+                        must(QueryBuilders.termsQuery("id", id));
+        SearchQuery searchQuery = new NativeSearchQueryBuilder().withQuery(queryBuilder).withSort(SortBuilders.fieldSort("id").order(SortOrder.DESC)).build();
+        elasticsearchTemplate.queryForList(searchQuery, User.class).forEach(System.out::println);
+        System.out.println("=====================================");
+        elasticsearchTemplate.queryForList(new NativeSearchQueryBuilder().withQuery(QueryBuilders.boolQuery().
+                //boost设置权重
+                        must(QueryBuilders.termsQuery("id", new Integer[]{1, 2}))).withSort(SortBuilders.fieldSort("id").order(SortOrder.DESC)).build(), User.class).forEach(System.out::println);
+        System.out.println("=====================================");
+        elasticsearchTemplate.queryForList(new NativeSearchQueryBuilder().withQuery(QueryBuilders.boolQuery().
+                //boost设置权重
+                        must(QueryBuilders.termsQuery("id", new Integer[]{1}))).withSort(SortBuilders.fieldSort("id").order(SortOrder.DESC)).build(), User.class).forEach(System.out::println);
+    }
 }

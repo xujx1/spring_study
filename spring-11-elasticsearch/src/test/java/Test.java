@@ -74,4 +74,12 @@ public class Test {
         userService.updateUser(user);
         userService.findAll().forEach(System.out::println);
     }
+
+    @org.junit.Test
+    public void findByIds() {
+        userService.findAll().forEach(System.out::println);
+        System.out.println("=====================================");
+        userService.findByIds(new Integer[]{1, 2, 3});
+    }
+
 }
